@@ -433,7 +433,7 @@ config MTK_APSOC_WIFI_MBO_SUPPORT
 	select MTK_APSOC_WIFI_DOT11K_RRM_SUPPORT
 	select MTK_APSOC_WIFI_DOT11R_FT_SUPPORT
 	select MTK_APSOC_WIFI_DOT11W_PMF_SUPPORT
-	default n
+	default y
 
 config MTK_APSOC_WIFI_MAP_SUPPORT
 	bool "MAP Support"
@@ -668,18 +668,18 @@ config MTK_APSOC_WIFI_ENTERPRISE_AP_SUPPORT
 config MTK_APSOC_WIFI_MLME_MULTI_QUEUE_SUPPORT
 	bool "Mlme Multi Queue Support"
 	depends on MTK_APSOC_WIFI_MT_AP_SUPPORT
-	default n
+	default y
 
 config MTK_APSOC_WIFI_WIFI_EAP_FEATURE
 	bool "EAP Feature"
 	depends on MTK_APSOC_WIFI_WIFI_DRIVER
 	depends on MTK_APSOC_WIFI_MT_AP_SUPPORT
-	default n
+	default y
 
 config MTK_APSOC_WIFI_VLAN_SUPPORT
 	bool "VLAN Support"
 	depends on MTK_APSOC_WIFI_WIFI_EAP_FEATURE
-	default n
+	default y
 
 config MTK_APSOC_WIFI_TXRX_STAT_SUPPORT
 	bool "TxRx Stats Support"
@@ -694,12 +694,12 @@ config MTK_APSOC_WIFI_SNIFFER_SUPPORT
 config MTK_APSOC_WIFI_ANTENNA_CONTROL_SUPPORT
 	bool "Antenna Control"
 	depends on MTK_APSOC_WIFI_WIFI_EAP_FEATURE
-	default n
+	default y
 
 config MTK_APSOC_WIFI_MGMT_TXPWR_CTRL
 	bool "Mgmt TxPower Control"
 	depends on MTK_APSOC_WIFI_WIFI_EAP_FEATURE
-	default n
+	default y
 
 config MTK_APSOC_WIFI_CHUTIL_SUPPORT
 	bool "Channel Utilization Support"
@@ -719,7 +719,7 @@ config MTK_APSOC_WIFI_RA_PHY_RATE_SUPPORT
 config MTK_APSOC_WIFI_AMPDU_CONF_SUPPORT
 	bool "AMPDU Config retry & agglimitSupport"
 	depends on MTK_APSOC_WIFI_WIFI_EAP_FEATURE
-	default n
+	default y
 
 config MTK_APSOC_WIFI_ACK_CTS_TIMEOUT_SUPPORT
 	bool "ACK CTS Timeout cck & ofdm Support"
@@ -789,7 +789,7 @@ config MTK_APSOC_WIFI_MIN_PHY_RATE_SUPPORT
 config MTK_APSOC_WIFI_FAST_UP_RATE_SUPPORT
 	bool "Fast UP rate support"
 	depends on MTK_APSOC_WIFI_MT_AP_SUPPORT
-	default n
+	default y
 
 config MTK_APSOC_WIFI_CON_WPS_SUPPORT
 	bool "Concurrent WPS Support"
@@ -848,7 +848,7 @@ config MTK_APSOC_WIFI_LED_CONTROL_SUPPORT
 config MTK_APSOC_WIFI_WLAN_HOOK
 	bool "WLAN hook Support"
 	depends on MTK_APSOC_WIFI_WIFI_DRIVER
-	default n
+	default y
 
 config MTK_APSOC_WIFI_RADIUS_ACCOUNTING_SUPPORT
 	bool "Radius Accounting Support"
@@ -918,12 +918,12 @@ config MTK_APSOC_WIFI_LINUX_NET_TXQ_SUPPORT
 config  MTK_APSOC_WIFI_WPA3_SUPPORT
 	bool "WPA3 Support"
 	depends on MTK_APSOC_WIFI_MT_AP_SUPPORT
-	default n
+	default y
 
 config  MTK_APSOC_WIFI_OWE_SUPPORT
 	bool "Enhanced Open Support"
 	depends on MTK_APSOC_WIFI_MT_AP_SUPPORT
-	default n
+	default y
 
 config  MTK_APSOC_WIFI_SINGLE_SKU
 	bool "Single SKU Support"

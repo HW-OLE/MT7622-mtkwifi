@@ -318,7 +318,7 @@ config MTK_BACKGROUND_SCAN_SUPPORT
 config MTK_SMART_CARRIER_SENSE_SUPPORT
 	bool "Smart Carrier Sense Support"
 	depends on MTK_WIFI_DRIVER
-	default n
+	default y
 
 config MTK_THERMAL_PROTECT_SUPPORT
         bool "THERMAL PROTECT SUPPORT"
@@ -328,7 +328,7 @@ config MTK_THERMAL_PROTECT_SUPPORT
 config MTK_SCS_FW_OFFLOAD
         bool "SCS FW OFFLOAD Support"
         depends on MTK_WIFI_DRIVER && MTK_SMART_CARRIER_SENSE_SUPPORT
-        default n
+        default y
 
 config MTK_MT_DFS_SUPPORT
 	bool "Dynamic Frequency Selection Support"
@@ -372,7 +372,7 @@ config MTK_DEFAULT_5G_PROFILE
 	bool "5G default profile for DBDC"
 	depends on MTK_DBDC_MODE
 #	depends on MTK_MULTI_PROFILE_SUPPORT
-	default n
+	default y
 
 config MTK_WSC_INCLUDED
 	bool "WSC (WiFi Simple Config)"
@@ -584,7 +584,7 @@ config MTK_OCE_SUPPORT
 	depends on MTK_MT_AP_SUPPORT
 	depends on MTK_MBO_SUPPORT
 	depends on MTK_CHIP_MT7915
-	default n
+	default y
 
 config MTK_MAP_SUPPORT
         bool "MAP Support"
@@ -618,7 +618,7 @@ config MTK_DPP_SUPPORT
         depends on MTK_WIFI_DRIVER
         depends on MTK_MT_AP_SUPPORT
         select MTK_DOT11W_PMF_SUPPORT
-        default n
+        default y
 
 config MTK_TCP_RACK_SUPPORT
 	bool "TCP Reduced ACK  support"
@@ -643,12 +643,12 @@ config MTK_FQ_SCH_SUPPORT
 config MTK_CTXD_MEM_CPY_SUPPORT
 	bool "CTXD(sw mode) support"
 	depends on MTK_WIFI_DRIVER
-	default y
+	default n
 
 config MTK_CTXD_SCATTER_AND_GATHER_SUPPORT
         bool "CTXD(hw mode) support"
         depends on MTK_WIFI_DRIVER
-        default n
+        default y
 
 config MTK_FDB_SUPPORT
        bool "FW Debug Port"
@@ -659,12 +659,12 @@ choice
         prompt "PA LNA Type of 1st Card"
 		depends on ! MTK_FIRST_IF_NONE
 		
+		config MTK_FIRST_IF_EPAELNA
+		bool "ePAeLNA"	
+			
 		config MTK_FIRST_IF_IPAILNA
 		bool "iPAiLNA"		
-		
-		config MTK_FIRST_IF_EPAELNA
-		bool "ePAeLNA"
-		
+
 		config MTK_FIRST_IF_IPAELNA
 		bool "iPAeLNA"
 #		config MTK_FIRST_IF_EPAILNA
@@ -674,11 +674,11 @@ choice
         prompt "PA LNA Type of 2nd Card"
 		depends on ! MTK_SECOND_IF_NONE
 		
-		config MTK_SECOND_IF_IPAILNA
-		bool "iPAiLNA"		
-		
 		config MTK_SECOND_IF_EPAELNA
 		bool "ePAeLNA"
+		
+		config MTK_SECOND_IF_IPAILNA
+		bool "iPAiLNA"		
 		
 		config MTK_SECOND_IF_IPAELNA
 		bool "iPAeLNA"
@@ -866,7 +866,7 @@ config MTK_WIFI_EAP_FEATURE
 	bool "EAP Feature"
 	depends on MTK_WIFI_DRIVER
 	depends on MTK_MT_AP_SUPPORT
-	default n
+	default y
 
 #VLAN
 config MTK_VLAN_SUPPORT
@@ -890,13 +890,13 @@ config MTK_SNIFFER_SUPPORT
 config MTK_ANTENNA_CONTROL_SUPPORT
 	bool "Antenna Control"
 	depends on MTK_WIFI_EAP_FEATURE
-	default n
+	default y
 
 #Mgmt Tx Power
 config MTK_MGMT_TXPWR_CTRL
 	bool "Mgmt TxPower Control"
 	depends on MTK_WIFI_EAP_FEATURE
-	default n
+	default y
 
 #RA_PHY_RATE
 config MTK_RA_PHY_RATE_SUPPORT
@@ -908,7 +908,7 @@ config MTK_RA_PHY_RATE_SUPPORT
 config MTK_AMPDU_CONF_SUPPORT
 	bool "AMPDU Config retry & agglimitSupport"
 	depends on MTK_WIFI_EAP_FEATURE
-	default n
+	default y
 
 #ACK CTS Timeout
 config MTK_ACK_CTS_TIMEOUT_SUPPORT
@@ -986,7 +986,7 @@ config MTK_MIN_PHY_RATE_SUPPORT
 config MTK_FAST_UP_RATE_SUPPORT
         bool "Fast UP rate support"
         depends on MTK_MT_AP_SUPPORT
-        default n
+        default y
 
 config MTK_CON_WPS_SUPPORT
 	bool "Concurrent WPS Support"
@@ -1036,7 +1036,7 @@ config MTK_VOW_SUPPORT
 config MTK_BAND_STEERING
 	bool "Band Steering"
 	depends on MTK_MT_AP_SUPPORT
-	default n
+	default y
 
 config MTK_LED_CONTROL_SUPPORT
 	bool "LED Control Support"
@@ -1045,7 +1045,7 @@ config MTK_LED_CONTROL_SUPPORT
 config MTK_WLAN_HOOK
        bool "WLAN hook Support"
        depends on MTK_WIFI_DRIVER
-       default n
+       default y
 
 config MTK_RADIUS_ACCOUNTING_SUPPORT
 	bool "Radius Accounting Support"
