@@ -83,7 +83,7 @@ table {
 <div id="container">
 	<div id="loading" style="margin-top: 1em; display: none;">
 	<img src="<%=resource%>/icons/loading.gif" alt="<%:Loading%>" />
-		&nbsp;&nbsp;&nbsp; Please waiting......
+		&nbsp;&nbsp;&nbsp; <%:Please waiting......%>
 	</div>
 
 	<form method="post" name="cbi" action="<%=luci.dispatcher.build_url("admin", "network", "wifi", "vif_cfg", devname, vifname)%>" enctype="multipart/form-data" autocomplete="off">
@@ -94,12 +94,12 @@ table {
 		</fieldset>
 	<% else %>
 		<fieldset class="cbi-section">
-		<legend><span class="ren">Interface Configurations - <%=vifname and devname.."@"..vifname or devname%></span>
+		<legend><span class="ren"><%:Interface Configurations%> - <%=vifname and devname.."@"..vifname or devname%></span>
 	<%
 	local diff = mtkwifi.diff_profile(dev.profile)
 	if next(diff) ~= nil then
 	%>
-	<span id="reload" style="color:red; display:none;">(<a href="#" onclick='wifi_reload("<%=luci.dispatcher.build_url("admin", "network", "wifi", "reload", devname)%>");return false;'>reload</a> to apply changes)</span>
+	<span id="reload" style="color:red; display:none;">(<a href="#" onclick='wifi_reload("<%=luci.dispatcher.build_url("admin", "network", "wifi", "reload", devname)%>");return false;'><%:reload%></a> <%:to apply changes%>)</span>
 	<%
 	end
 	%>
@@ -115,7 +115,7 @@ table {
 			</tr>
 			<% if dev.DBDC_MODE == "0" then %>
 			<tr>
-				<td>Channel</td>
+				<td><%:Channel%></td>
 				<td>
 				<select style="width:auto" name="__channel">
 					<% for i=0,14 do %>
@@ -128,7 +128,7 @@ table {
 			</tr>
 			<% end %>
 			<tr>
-				<td>Auth Mode</td>
+				<td><%:Auth Mode%></td>
 				<td>
 				<select name="__authmode" id="AuthMode" onchange="AuthMode_onchange(this.options[this.options.selectedIndex].value)">
 					<%
@@ -174,7 +174,7 @@ table {
 			</tbody>
 			<tbody id="wpacommon" style="display:none;">
 			<tr>
-				<td>WPA Algorithm</td>
+				<td><%:WPA Algorithm%></td>
 				<td>
 				<select name="__wpa_encrypttype" id="__wpa_encrypttype">
 				<% for _,v in ipairs(dev.WPA_Enc_List) do %>
@@ -186,7 +186,7 @@ table {
 			</tbody>
 			<tbody id="wpacommon3" style="display:none;">
 			<tr>
-				<td>WPA Algorithm</td>
+				<td><%:WPA Algorithm%></td>
 				<td>
 				<select name="wpacommon3" disabled="disabled">
 					<option selected="selected">AES</option>
@@ -196,7 +196,7 @@ table {
 			</tbody>
 			<tbody id="key_r" style="display:none;">
 			<tr>
-				<td>Key Renewal Interval</td>
+				<td><%:Key Renewal Interval%></td>
 				<td>
 				<input value="<%=vif.__rekeyinterval%>" type="text" name="__rekeyinterval" /><span class="he1">second(s) (0 ~ 4194303, default 86400)</span>
 				</td>
@@ -204,7 +204,7 @@ table {
 			</tbody>
 			<tbody id="WPA2PSK" style="display:none;">
 			<tr>
-				<td>Key</td>
+				<td><%:Key%></td>
 				<td>
 				<input value="<%=vif.__wpapsk%>" type="text" name="<%="WPAPSK"..vifidx%>" id="<%="WPAPSK"..vifidx%>" /><span class="he1">8~63 symbols</span>
 				</td>
@@ -212,7 +212,7 @@ table {
 			</tbody>
 			<tbody id="WEP" style="display:none;">
 			<tr>
-				<td>Encryption</td>
+				<td><%:Encryption%></td>
 				<td>
 				<select name="__wep_encrypttype">
 				<% for _,v in ipairs(dev.WEP_Enc_List) do %>
@@ -404,7 +404,7 @@ table {
 			</tbody>
 			<tbody>
 			<tr>
-				<td>Hidden SSID</td>
+				<td><%:Hidden SSID%></td>
 				<td>
 				<input name="__hidessid" value="1"
 				<% if vif.__hidessid == "1" then %>
@@ -413,7 +413,7 @@ table {
 				</td>
 			</tr>
 			<tr>
-				<td>AP Isolation</td>
+				<td><%:AP Isolation%></td>
 				<td>
 				<input name="__noforwarding" value="1"
 				<% if vif.__noforwarding == "1" then %>
@@ -460,10 +460,10 @@ table {
 		</fieldset>
 
 		<div class="cbi-page-actions">
-			<input class="cbi-button cbi-button-link" value="Back" type="button" onclick="location.href='<%=luci.dispatcher.build_url("admin", "network", "wifi")%>'" />
-			<input class="cbi-button cbi-button-positive" value="Save" type="submit" />
-			<input class="cbi-button cbi-button-apply" value="Save & Apply" type="submit" onclick='save_apply()' />
-			<input class="cbi-button cbi-button-reset" value="Reset" type="reset" />
+			<input class="cbi-button cbi-button-link" value="<%:Back%>" type="button" onclick="location.href='<%=luci.dispatcher.build_url("admin", "network", "wifi")%>'" />
+			<input class="cbi-button cbi-button-positive" value="<%:Save%>" type="submit" />
+			<input class="cbi-button cbi-button-apply" value="<%:Save & Apply%>" type="submit" onclick='save_apply()' />
+			<input class="cbi-button cbi-button-reset" value="<%:Reset%>" type="reset" />
 		</div>
 	<% end %>
 	</form>
