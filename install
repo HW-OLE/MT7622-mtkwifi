@@ -1,0 +1,2 @@
+cp -rf package ../
+cp -rf target ../
