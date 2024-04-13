@@ -1,17 +1,23 @@
 --- target/linux/mediatek/modules.mk
 +++ target/linux/mediatek/modules.mk
-@@ -1,0 +1,11 @@
+@@ -28,1 +28,16 @@
+-$(eval $(call KernelPackage,btmtkuart))
++$(eval $(call KernelPackage,btmtkuart))
++
 +define KernelPackage/mtk-hnat
 +  SUBMENU:=Network Devices
 +  TITLE:=MediaTek MT762x HW NAT driver
 +  DEPENDS:=@TARGET_mediatek_mt7622 +kmod-nf-flow
-+  KCONFIG:= +    CONFIG_BRIDGE_NETFILTER=y +    CONFIG_NET_MEDIATEK_HNAT +    CONFIG_NETFILTER_FAMILY_BRIDGE=y
-+  FILES:= +    $(LINUX_DIR)/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko
++  KCONFIG:= \
++	CONFIG_BRIDGE_NETFILTER=y \
++	CONFIG_NET_MEDIATEK_HNAT \
++	CONFIG_NETFILTER_FAMILY_BRIDGE=y
++  FILES:= \
++	$(LINUX_DIR)/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko
 +  AUTOLOAD:=$(call AutoLoad,55,mtkhnat)
 +endef
 +
 +$(eval $(call KernelPackage,mtk-hnat))
-+
 --- target/linux/mediatek/mt7622/config-5.10
 +++ target/linux/mediatek/mt7622/config-5.10
 @@ -286,1 +286,2 @@
