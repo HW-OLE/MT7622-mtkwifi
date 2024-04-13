@@ -1,0 +1,21 @@
+--- package/mtk/luci-app-mtwifi/files/mt7615.1.dat
++++ package/mtk/luci-app-mtwifi/files/mt7615.1.dat
+@@ -112,1 +112,1 @@
+-EAPifname=none
++EAPifname=br-lan
+--- package/mtk/luci-app-mtwifi/files/mt7615.2.dat
++++ package/mtk/luci-app-mtwifi/files/mt7615.2.dat
+@@ -115,1 +115,1 @@
+-EAPifname=none
++EAPifname=br-lan
+--- package/base-files/files/bin/config_generate
++++ package/base-files/files/bin/config_generate
+@@ -106,7 +106,7 @@
+ 	# Force bridge for "lan" as it may have other devices (e.g. wireless)
+ 	# bridged
+ 	[ "$1" = "lan" -a -z "$ports" ] && {
+-		ports="$ifname"
++		ports="$ifname ra0 rai0"
+ 	}
+ 
+ 	[ -n "$ports" ] && {

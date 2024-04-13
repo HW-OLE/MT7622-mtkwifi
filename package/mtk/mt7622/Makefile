@@ -255,6 +255,11 @@ define Build/Compile
 endef
 
 define KernelPackage/mt7622/install
-endef
+	$(INSTALL_DIR) $(1)/lib/modules/
+	$(INSTALL_BIN) $(LINUX_DIR)/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko $(1)/lib/modules/
+endef	
+#	$(INSTALL_BIN) $(1)/../../../linux-5.10.143/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko $(1)/lib/modules/
+#	$(INSTALL_BIN) $(1)/../../../linux-$(LINUX_VERSION)/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko $(1)/lib/modules/
+
 
 $(eval $(call KernelPackage,mt7622))

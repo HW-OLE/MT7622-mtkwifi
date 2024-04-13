@@ -1,0 +1,27 @@
+--- a/drivers/net/ethernet/Kconfig
++++ b/drivers/net/ethernet/Kconfig
+@@ -124,1 +124,2 @@ source "drivers/net/ethernet/micrel/Kcon
+ source "drivers/net/ethernet/mscc/Kconfig"
++source "drivers/net/ethernet/mtk/Kconfig"
+--- a/drivers/net/ethernet/Makefile
++++ b/drivers/net/ethernet/Makefile
+@@ -53,1 +53,2 @@ obj-$(CONFIG_NET_VENDOR_MEDIATEK) += mediatek
+ obj-$(CONFIG_NET_VENDOR_MEDIATEK) += mediatek/
++obj-$(CONFIG_NET_VENDOR_RAW_MEDIATEK) += mtk/
+--- a/drivers/net/phy/Kconfig
++++ b/drivers/net/phy/Kconfig
+@@ -394,6 +394,8 @@ config XILINX_GMII2RGMII
+ 	  the Reduced Gigabit Media Independent Interface(RGMII) between
+ 	  Ethernet physical media devices and the Gigabit Ethernet controller.
+ 
++source "drivers/net/phy/mtk/mt753x/Kconfig"
++
+ endif # PHYLIB
+ 
+ config MICREL_KS8995MA
+--- a/drivers/net/phy/Makefile
++++ b/drivers/net/phy/Makefile
+@@ -69,2 +69,3 @@ obj-$(CONFIG_MICROCHIP_PHY)	+= microchip.o
+ obj-$(CONFIG_MICROCHIP_PHY)	+= microchip.o
+ obj-$(CONFIG_MICROCHIP_T1_PHY)	+= microchip_t1.o
++obj-$(CONFIG_MT753X_GSW)	+= mtk/mt753x/

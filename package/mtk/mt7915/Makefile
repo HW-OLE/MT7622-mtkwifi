@@ -240,7 +240,7 @@ define KernelPackage/mt_wifi
   TITLE:=MTK wifi AP driver
 ifneq ($(CONFIG_MTK_FAST_NAT_SUPPORT), )
 ifneq ($(CONFIG_NET_MEDIATEK_HNAT), )
-  DEPENDS+=+kmod-mediatek_hnat
+  DEPENDS+=+kmod-mtk-hnat
 endif
 endif
 ifneq ($(CONFIG_MTK_WHNAT_SUPPORT), )
@@ -278,6 +278,8 @@ define Build/Compile
 endef
 
 define KernelPackage/mt_wifi/install
+#	$(INSTALL_DIR) $(1)/lib/modules/
+#	$(INSTALL_BIN) $(1)/../../../linux-5.10.143/drivers/net/ethernet/mtk/mtk_hnat/mtkhnat.ko $(1)/lib/modules/
 endef
 
 $(eval $(call KernelPackage,mt_wifi))

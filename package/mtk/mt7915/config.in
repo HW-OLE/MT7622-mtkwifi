@@ -318,7 +318,7 @@ config MTK_BACKGROUND_SCAN_SUPPORT
 config MTK_SMART_CARRIER_SENSE_SUPPORT
 	bool "Smart Carrier Sense Support"
 	depends on MTK_WIFI_DRIVER
-	default y
+	default n
 
 config MTK_THERMAL_PROTECT_SUPPORT
         bool "THERMAL PROTECT SUPPORT"
@@ -328,7 +328,7 @@ config MTK_THERMAL_PROTECT_SUPPORT
 config MTK_SCS_FW_OFFLOAD
         bool "SCS FW OFFLOAD Support"
         depends on MTK_WIFI_DRIVER && MTK_SMART_CARRIER_SENSE_SUPPORT
-        default y
+        default n
 
 config MTK_MT_DFS_SUPPORT
 	bool "Dynamic Frequency Selection Support"
@@ -400,15 +400,15 @@ config MTK_TXBF_SUPPORT
 config MTK_FAST_NAT_SUPPORT
        bool "Fast-NAT support"
 #       depends on RA_HW_NAT_WIFI
-       default n
+       default y
 
 config MTK_WHNAT_SUPPORT
 	tristate "Wifi Hardware NAT support"
 	depends on MTK_CHIP_MT7615E || MTK_CHIP_MT7915
 	depends on MTK_WLAN_HOOK
 	depends on MTK_FAST_NAT_SUPPORT
-	depends on PACKAGE_kmod-hw_nat || PACKAGE_kmod-mediatek_hnat
-	default n
+	depends on PACKAGE_kmod-hw_nat || PACKAGE_kmod-mtk-hnat
+	default y
 
 config MTK_WARP_V2
 	bool "Warp driver version 2 support"

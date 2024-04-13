@@ -1,3 +1,0 @@
-cp -rf package ../
-cp -rf target ../
-cp -rf patch_for_luci_18.06/* ../
