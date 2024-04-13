@@ -20,9 +20,9 @@ else
     exit 1
 fi
 #apply general patches
-for PATCH_FILE in $(ls$PATCH_DIR_GENERAL/*.patch); do
+for PATCH_FILE in $(ls $PATCH_DIR_GENERAL/*.patch); do
     echo "Applying patch: $PATCH_FILE"
-    patch -p0 < $PATCH_FILE
+    patch -p0 -f --verbose < $PATCH_FILE
     if [ $? -ne 0 ]; then
         echo "Failed to apply patch: $PATCH_FILE"
         exit 1
@@ -30,9 +30,9 @@ for PATCH_FILE in $(ls$PATCH_DIR_GENERAL/*.patch); do
     echo "Patch applied successfully: $PATCH_FILE"
 done
 #apply luci patches
-for PATCH_FILE in $(ls$PATCH_DIR_LUCI/*.patch); do
+for PATCH_FILE in $(ls $PATCH_DIR_LUCI/*.patch); do
     echo "Applying patch: $PATCH_FILE"
-    patch -p0 < $PATCH_FILE
+    patch -p0 -f --verbose < $PATCH_FILE
     if [ $? -ne 0 ]; then
         echo "Failed to apply patch: $PATCH_FILE"
         exit 1

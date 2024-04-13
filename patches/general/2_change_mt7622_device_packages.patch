@@ -1,5 +1,5 @@
---- /target/linux/mediatek/image/mt7622.mk
-+++ /target/linux/mediatek/image/mt7622.mk
+--- target/linux/mediatek/image/mt7622.mk
++++ target/linux/mediatek/image/mt7622.mk
 @@ -297,7 +297,7 @@
    DEVICE_DTS := mt7622-xiaomi-redmi-router-ax6s
    DEVICE_DTS_DIR := ../dts

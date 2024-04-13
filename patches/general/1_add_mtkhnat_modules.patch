@@ -1,6 +1,6 @@
 --- target/linux/mediatek/modules.mk
 +++ target/linux/mediatek/modules.mk
-@@ -1,0 +1,14 @@
+@@ -1,0 +1,11 @@
 +define KernelPackage/mtk-hnat
 +  SUBMENU:=Network Devices
 +  TITLE:=MediaTek MT762x HW NAT driver
@@ -11,8 +11,9 @@
 +endef
 +
 +$(eval $(call KernelPackage,mtk-hnat))
---- target/linux/mediatek/mt7622/config-5.10	
-+++ target/linux/mediatek/mt7622/config-5.10	
++
+--- target/linux/mediatek/mt7622/config-5.10
++++ target/linux/mediatek/mt7622/config-5.10
 @@ -286,1 +286,2 @@
 -CONFIG_NET_MEDIATEK_SOC=y
 +# CONFIG_NET_MEDIATEK_SOC is not set
