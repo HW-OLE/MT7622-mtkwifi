@@ -1,7 +1,7 @@
 # 用于OpenWrt的MEDIATEK WIFI驱动程序
 用于OpenWrt的MEDIATEK WIFI驱动程序
 I18N:  [English](README_EN.md) | [简体中文](README.md)
-包含MT7622和MT7915无线驱动，包含MEDIATEK HNAT驱动。兼容linux内核5.10.x，其他内核版本自行测试。测试过的openwrt fork有:openwrt 22.03、lean's lede。附带的内核包、软件包名有：kmod-mtk-hnat、kmod-mt7622、kmod-mt_wifi、luci-app-mtwifi、l1profile
+包含MT7622和MT7915无线驱动，包含MEDIATEK HNAT驱动(lean魔改版，兼容DSA和swconfig)。兼容linux内核5.10.x，其他内核版本自行测试。针对lean's lede适配，已测试编译通过的Commit 5428ab1b70127e08c21f6307c95432cea8badb8e on Sep 17, 2022。附带的内核包、软件包名有：kmod-mtk-hnat、kmod-mt7622、kmod-mt_wifi、luci-app-mtwifi、l1profile
 
 使用方法：
 1) 克隆你需要的openwrt repo
